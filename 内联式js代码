@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	 
+		<div onclick="alert('hello world!')">hello</div>
+	</body>
+</html>
+结果，当点击div时弹出“hello world！”消息框
