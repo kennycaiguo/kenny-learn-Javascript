@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			 
+			for (var i=0;i<5;i++) {
+				for(var j=0;j<=i;j++)
+				{
+					document.write("*");
+				}
+				document.writeln("<br/>");
+			}
+		</script>
+	</body>
+</html>
+
+结果：
+*
+**
+***
+****
+*****
