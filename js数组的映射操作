@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.使用数组的map方法，在这个方法里面传递一个回调函数
+			// const nums=[0,2,4];
+			// //将数组的每一个元素的值增加1
+			// var newNums=nums.map(function inc(value){
+			// 	return value+1;
+			// });
+			// document.write(newNums); //1,3,5
+			//2.使用Array.from()方法
+			const nums=[0,2,4];
+			var bigNums=Array.from(nums,function mul(val){
+				return val*2;
+			});
+			document.write(bigNums);//0,4,8
+		</script>
+	</body>
+</html>
