@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//在数组中查找每一个值
+			//1.includes()
+			const arr=[11,22,3,4,55,6,7];
+			document.write(arr.includes(2)); //false
+			document.write("<br/>");
+			document.write(arr.includes(11));
+			document.write("<br/>================================<br/>");
+			//2.find() //只能找到第一个符合条件的
+			function isEven(num)
+			{
+				return num%2===0;
+			}
+			//自己实现的查找偶数函数
+			function getEvens(nums)
+			{
+				var res=[];
+				for(var i=0;i<nums.length;i++)
+				{
+					if(nums[i]%2===0)
+					{
+						res.push(nums[i]);
+					}
+				}
+				return res;
+			}
+			var evenNum=arr.find(isEven);
+			document.write("evenNum:"+evenNum);
+			document.write("<br/>");
+			document.write("evenNum:"+getEvens(arr));
+			document.write("<br/><br/>");
+			 //3.indexOf() 
+	
+			 const books=['harry porter','c primer','java programming','html'];
+		      document.write(books.indexOf('html'));
+		</script>
+	</body>
+</html>
