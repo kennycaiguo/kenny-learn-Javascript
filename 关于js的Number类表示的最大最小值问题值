@@ -13,6 +13,7 @@
 			var min=Number.MIN_VALUE;
 			document.write("min="+min+"<br/>");//min=5e-324，这个是一个无限接近0的正数
 		//所以，真真正正的最小值应该是-Number.MAX_VALUE；
+		//js能保留的最多小数位数为17
 		</script>
 		
 	</body>
