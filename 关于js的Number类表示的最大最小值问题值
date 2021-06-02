@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.最大有效数值利用Number.MAX_VALUE
+		    var max=Number.MAX_VALUE;
+			document.write("max="+max+"<br/>");//max=1.7976931348623157e+308
+		    //2.最小有效数值利用Number.MIN_VALUE,它是指正的最小值，这也是js不严谨的地方之一
+			var min=Number.MIN_VALUE;
+			document.write("min="+min+"<br/>");//min=5e-324，这个是一个无限接近0的正数
+		</script>
+		
+	</body>
+</html>
