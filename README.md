@@ -4,3 +4,39 @@
 # <a href="https://segmentfault.com/a/1190000022866321">JavaScript 中 15 种常见的数组操作</a>
 # <a href="https://juejin.cn/post/6844903616512278536">JS创建对象的几种方法</a>
 # <a hef="https://blog.csdn.net/u011280778/article/details/99711988">javascript中对一个对象数组按照对象某个属性进行排序</a>
+# js中有趣的Infinity
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.infinity是值正的无穷大，属于Number类型，-infinity是值负的无穷大
+			var res=1/0;//其他语言中0不能转为除数，但是js可以。
+			document.write("1/0="+res+"<br/>");//1/0=Infinity
+			//2.一个数字除以一个Infinity，结果是0
+			var res2=10000/res;
+			document.write("10000/Infinity="+res2+"<br/>");//10000/Infinity=0
+			//3.Infinity乘于-1等于-Infinity
+			var res3=res*(-1);
+			document.write("Infinity*(-1)="+res3+"<br/>");//Infinity*(-1)=-Infinity
+			//4.Infinity/Infinity=NaN无穷大除以无穷大得到的是NaN
+			document.write("Infinity/Infinity="+Infinity/Infinity+"<br/>");//Infinity/Infinity=NaN
+		    //5.Infinity/-1=-Infinity
+			document.write("Infinity/-1="+Infinity/-1+"<br/>");//Infinity/-1=-Infinity
+			//6.Infinity/-Infinity=NaN
+			document.write("Infinity/-Infinity="+Infinity/-Infinity+"<br/>");//NaN
+			//7.Infinity-Infinity=NaN
+			var r=Infinity-Infinity;
+			document.write("Infinity-Infinity="+r+"<br/>");
+			//8.Infinity+Infinity=Infinity
+			var r2=Infinity+Infinity;
+			document.write("Infinity+Infinity="+r2+"<br/>");//=Infinity
+			//9.Infinity*Infinity=Infinity
+			var r3=Infinity*Infinity;
+			document.write("Infinity*Infinity="+r3+"<br/>");//=Infinity
+		</script>
+	</body>
+</html>
