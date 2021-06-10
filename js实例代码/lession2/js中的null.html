@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.当给一个变量赋值为null，此时整个变量的类型就变为<object>
+			//2.js中null可以和数字运算，当作0来使用
+			var cat=null;
+			document.write(typeof cat+"<br/>");//object
+			cat={
+				name:"fafa",
+				sex:'Female'
+			};
+			document.write(typeof cat+"<br/>");//object
+			document.write(null+2+"<br/>");//2
+			document.write(null*2+"<br/>");//0
+			//null和undefined比较，是相等
+			document.write((null==undefined)+"<br/>");//true
+			//null不等于0
+			document.write((null==0)+"<br/>");
+		</script>
+	</body>
+</html>
