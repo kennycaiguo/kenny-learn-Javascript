@@ -7,6 +7,7 @@
 # <a href="https://www.w3school.com.cn/js/js_special_characters.asp">JavaScript 特殊字符</a>
 # <a href="https://juejin.cn/post/6844903881172877320">JS函数中参数的传递方式</a>
 # <a href="https://www.cnblogs.com/yugege/p/5539020.html">浅谈JavaScript函数重载</a>
+# <a href="https://juejin.cn/post/6844903636154187790">JavaScript中的函数重载（Function overloading）</a>
 # js中有趣的Infinity
 <!DOCTYPE html>
 <html>
