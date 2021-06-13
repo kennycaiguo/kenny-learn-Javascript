@@ -5,6 +5,7 @@
 # <a href="https://juejin.cn/post/6844903616512278536">JS创建对象的几种方法</a>
 # <a href="https://blog.csdn.net/u011280778/article/details/99711988">javascript中对一个对象数组按照对象某个属性进行排序</a>
 # <a href="https://www.w3school.com.cn/js/js_special_characters.asp">JavaScript 特殊字符</a>
+# <a href="https://juejin.cn/post/6844903881172877320">JS函数中参数的传递方式</a>
 # js中有趣的Infinity
 <!DOCTYPE html>
 <html>
