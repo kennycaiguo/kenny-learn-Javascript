@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//==和===：===表示严格相等，即类型和值都相等不会进行类型转换，首先如果两个数据的类型不一致，直接返回false，类型一致再比较值的大小
+			document.write(('1'===1)+"<br/>");//false
+			document.write((true===1)+"<br/>");//false
+			document.write((null===null)+"<br/>");//true
+			document.write((Infinity===Infinity)+"<br/>");//true
+			document.write((undefined===undefined)+"<br/>");//true
+			document.write((+0===-0)+"<br/>");//true
+			document.write((NaN===NaN)+"<br/>");//false 因为NaN！=NaN，这是一条特殊规则
+			document.write("########################################################<br/>");
+			//==是会进行类型转换的因此js中的==并不可靠，需要使用===
+			document.write(('1'==1)+"<br/>");//true
+			document.write((true==1)+"<br/>");//true
+			document.write(('\r\t1'==1)+"<br/>");//true,用==进行判断时会忽略空白字符
+			document.write(('true'==true)+"<br/>");//false,因为Number('true')的结果是NaN，NaN!=true
+			document.write("########################################################<br/>");
+			//!=和!==,!==表示严格不相等，用来判断左右是否不相等，类型不相等或者值不相等都返回false
+			//!==总是和===的结果相反
+			document.write(('1'!==1)+"<br/>");//true
+			document.write((true!==1)+"<br/>");//true
+			document.write((null!==null)+"<br/>");//false
+			document.write((Infinity!==Infinity)+"<br/>");//false
+			document.write((NaN!==NaN)+"<br/>");//true
+			document.write("########################################################<br/>");
+			//!=会进行类型转换，只有值不相等才是不相等
+			document.write(('1'!=1)+"<br/>");//false
+			document.write((true!=1)+"<br/>");//false
+			document.write((Infinity!=Infinity)+"<br/>");//false
+			document.write((NaN!=NaN)+"<br/>");//true
+		</script>
+	</body>
+</html>
