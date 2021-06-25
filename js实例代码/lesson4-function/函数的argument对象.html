@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//函数的arguments对象可以用来获取函数的参数个数
+			function mathOp(op,a,b)
+			{
+				if(mathOp.arguments.length<3)
+				{
+					document.write("该函数需要3个参数！！！")
+					return;
+				}
+				else
+				{
+					document.write(`当前操作为${mathOp.arguments[0]}`+"<br>");
+					switch(op){
+					case '+':
+					return `${a}+${b}=${a+b}`+"<br>";
+					case '-':
+					return `${a}-${b}=${a-b}`+"<br>";
+					case '*':
+					return `${a}*${b}=${a*b}`+"<br>";
+					case '/':
+					if(b!=0)
+					{
+						return `${a}/${b}=${a/b}`+"<br>";
+					}
+					 
+					case '%':
+					return `${a}%${b}=${a%b}`+"<br>";
+				 }
+			  }
+				
+			}
+			document.write(mathOp('%',22,10));
+			//应用，写一个任意数的累加函数，也就是可变参数函数功能
+			function anySum()
+			{
+				var sum=0;
+				for (var i=0;i<anySum.arguments.length;i++) {
+					sum+=anySum.arguments[i];//将每一个数累加
+				}
+				return `sum=${sum}`+"<br>";
+			}
+			
+			document.write(anySum(10,20,30,40));
+		</script>
+	</body>
+</html>
