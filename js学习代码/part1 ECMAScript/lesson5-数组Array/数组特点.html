@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//数组定义写法1：
+		let arr =[1,2,3]; //1,2,3
+		document.write(arr+"<br>");
+		////数组定义写法2：数组是一个特殊的对象,js 中一个数组可以有各种不同类型的元素，其它静态语言不行。
+		let ken=['ken',20,'male',true];
+		document.write(ken+"<br>");
+		/// 
+		document.write("===============================================<br>")
+		//数组的元素可以是各种类型的包括数组，对象，函数等等
+		let obj=[ //在这里obj是一个数组
+			["lips","breast","pussy"],
+			{
+			   name:"jack",
+			   age:18,
+			   gender:"male"
+			},
+			function ()
+			{
+				for (var i=0;i<=5;i++) {
+					for (var j=0;j<=i;j++) {
+						document.write("^_^,");
+					}
+					document.write("<br>");
+				}
+			}
+		];
+		obj[2](); //利用下标调用数组的函数元素，
+		document.write("===============================================<br>");
+		//obj[1]是一个对象，可以利用下标获取该对象然后使用它的属性
+		document.write(`${obj[1].name}is ${obj[1].gender},and the age is:${obj[1].age}`+"<br>");//jackis male,and the age is:18
+		 //下面的不是数组，不要混淆。。。
+		let animal={
+			name:"Catty",
+			age:1,
+			action:function(){document.write("miao..........<br>");},
+		};
+		//animal.action();//这个没有任何问题获取对象是函数属性并且调用，输出miao.........
+		animal["action"]();//这样子写是ok的，结果同上。注意：对象的键不是下标，不能用数组，如animal[2]()会报错
+		//注意，虽然数组可以放任意类型，不过建议一个数组置使用一种类型，除非有特殊情况
+		</script>
+	</body>
+</html>

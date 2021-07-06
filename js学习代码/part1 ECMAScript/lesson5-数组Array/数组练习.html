@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.写一个你产生一个数组的函数
+			function makeArr(count)
+			{
+				var arr=[];
+				for (var i=0;i<count;i++) {
+					arr[i]=~~(Math.random()*count+Math.random()*10)
+				}
+				return arr;
+			}
+			var arr=makeArr(5);
+			document.write("arr="+arr+"<br>");
+			//2.用函数实现求一个数组的最大值
+			function getMax(arr)
+			{
+				var max=arr[0];
+				for(var i=0;i<arr.length;i++)
+				{
+					if(max<arr[i]) max=arr[i];
+				}
+				
+				return max;
+			}
+			var nums=[30,30,50,40,6,30];
+			document.write("max of nums="+getMax(nums)+"<br>");//max of nums=60
+			//3.利用函数计算数组指定元素的个数
+			function getElementCount(arr,element)
+			{
+				var count=0;
+				for (var i=0;i<arr.length;i++) {
+					if(arr[i]===element) count++;
+				}
+				return count;
+			}
+			var count =getElementCount(nums,30);
+			document.write(" nums中30的个数="+count+"<br>");
+			//4.用函数返回数组指定重复元素的所有索引
+			function getElementIndices(arr,el)
+			{
+				var indexArr=[];
+				for (var i=0;i<arr.length;i++) {
+					if(arr[i]===el)
+					indexArr.push(i);
+				}
+				return indexArr;
+			}
+			var indexArr=getElementIndices(nums,30);
+			document.write(" nums中30的所有索引值="+indexArr+"<br>");//nums中30的所有索引值=0,1,5
+		</script>
+	</body>
+</html>

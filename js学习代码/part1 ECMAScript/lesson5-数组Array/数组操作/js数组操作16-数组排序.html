@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//简单排序	
+		//1.普通排序,会改变原数组
+		var nums=[4,1,2,3];
+		document.write("原数组"+nums);
+		document.write("<br/>");
+		nums.sort();
+		document.write("排序后的数组"+nums);
+		document.write("<br/>");
+		document.write("<br/>");
+		//2.让偶数排在奇数前面
+		nums=[4,1,2,3];
+		document.write("原数组:"+nums); //原数组4,1,2,3
+		document.write("<br/>");
+		//以下函数的实现原理？
+		function compare(n1, n2) { //偶数排在前面
+		  if (n1 % 2 === 0 && n2 % 2 !== 0) {
+		    return -1;
+		  }
+		  if (n1 % 2 !== 0 && n2 % 2 === 0) {
+		    return 1;
+		  }
+		  return 0;
+		}
+		function compare2(n1, n2) { //奇数排在前面
+		  if (n1 % 2 === 0 && n2 % 2 !== 0) {
+		    return 1;
+		  }
+		  if (n1 % 2 !== 0 && n2 % 2 === 0) {
+		    return -1;
+		  }
+		  return 0;
+		}
+		nums.sort(compare);
+		document.write("排序后的数组:"+nums);//排序后的数组4,2,1,3
+		document.write("<br/>");
+		//3.对象数组比较排序？
+		function Person(name,age)
+		{
+			this.name=name;
+			this.age=age;
+			this.toString=function(){
+				return "Person[name:"+this.name+",age:"+this.age+"]";
+			}
+		}
+		var persons=[new Person("jack",19),new Person("may",18),new Person("ken",20),new Person("brandy",17)];
+		document.write("原persons数组:"+persons);
+		document.write("<br/>");
+		persons.sort(); //默认是按字母的顺序排序
+		document.write("排序后的persons数组:"+persons);
+		document.write("<br/>");
+		//将persons数组设置为按年龄排序
+		function myCompare(p1,p2)
+		{
+			return p1.age-p2.age;//按年龄升序排列
+		}
+		function myCompare2(p1,p2)
+		{
+			return p2.age-p1.age;//按年龄降序排列
+		}
+		persons.sort(myCompare2);
+		document.write("按年龄排序后的persons数组:"+persons);
+		</script>
+		
+		
+	</body>
+</html>

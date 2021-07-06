@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Date对象的Date()方法可以直接使用也可以作为构造方法来使用
+			document.write("当前时间："+Date()+"<br>");//当前时间：Thu Jul 01 2021 18:16:26 GMT-0600 (北美中部标准时间)
+			var d =new Date();
+			document.write("当前时间："+d+"<br>");
+			document.write("当前时间的日期当地格式："+d.toLocaleDateString()+"<br>");//当前时间的日期当地格式：2021/7/1
+			document.write("当前时间的当地字符串格式："+d.toLocaleString()+"<br>");//当前时间的当地字符串格式：2021/7/1下午6:34:18
+			//Date对象的构造方法也可以带参数，如new Date(年，月，日,时，分，秒)
+			d=new Date(2020,02,12,11,05,15);
+			document.write("新构造的日期当地格式："+d.toLocaleDateString()+"<br>");//新构造的日期当地格式：2020/3/12
+			//也可以new Date(日期字符串)
+			var d1=new Date("2019/5/21 15:10:12");
+			document.write("字符串构造的日期当地字符串格式："+d1.toLocaleString()+"<br>");//字符串构造的日期当地字符串格式：2019/5/21下午3:10:12
+			var d2=new Date("2017-4-20 15:10:12");
+			document.write("字符串构造的日期当地字符串格式："+d2.toLocaleString()+"<br>");//字符串构造的日期当地字符串格式：2017/4/20下午3:10:12
+			//两个时间可以进行相减返回的是毫秒数
+			var dif=d1-d2;
+			document.write("前面两个时间相差："+(dif/1000/3600/24)+"天<br>");
+			/*
+			 Date对象的静态方法
+			 1.Date.now();返回现在和1970/1/1之差的毫秒数，为什么不直接小时年月日格式？js有时候很费解
+			   用这个返回值作为参数创建一个新的Date对象获取现在的时间，当然使用new Date()没有参数也可以
+			 2.Date.parse()将一个符合格式的字符串解析为距离时间原点的毫秒数
+			*/
+			document.write("Date的now方法返回："+Date.now()/1000/3600/24+"天<br>");
+			document.write("现在的时间是："+new Date(Date.now())+"天<br>");//现在的时间是：Fri Jul 02 2021 07:37:51 GMT-0600 (北美中部标准时间)天
+		   document.write("Date的parse方法返回："+Date.parse("2020-3-20")+"<br>");
+		   document.write("Date的parse方法作为参数创建日期返回："+new Date(Date.parse("2020-3-20"))+"<br>");//Date的parse方法作为参数创建日期返回：Fri Mar 20 2020 00:00:00 GMT-0600 (北美中部标准时间)
+		   /*
+		      Date对象的实例方法
+			  1.toXXX
+			  2.getXXX
+			  3.setXXX
+		   */
+		  document.write("当前的时间："+new Date().toString()+"<br>");//当前的时间：Fri Jul 02 2021 08:04:22 GMT-0600 (北美中部标准时间)
+		  document.write("当前的小时数："+new Date().getHours()+"<br>");//8 现在是8点
+		  document.write("今年是："+new Date().getFullYear()+"<br>");//今年是：2021
+		  document.write("今天日期："+new Date().getDate()+"<br>");//2 今天是2号
+		  document.write("今天是星期几："+new Date().getDay()+"<br>");//5 返回今天是星期几，今天是星期五
+		  document.write("Date实例对象.getTime()返回："+new Date().getTime()+"<br>");//Date实例对象.getTime()返回：1625235668815
+		   //Date（Date实例对象.getTime()）返回：Fri Jul 02 2021 08:22:18 GMT-0600 (北美中部标准时间)
+		   document.write("Date（Date实例对象.getTime()）返回："+Date(new Date().getTime())+"<br>");
+		   //setXXX
+		   var date=new Date();
+		   //date.setDay(7);//这个函数不存在
+		   date.setDate(7)
+		   document.write("新设置的星期几："+date.getDay()+"<br>");//7月7号是星期三
+		   date.setHours(9);
+		   document.write("新设置的小时："+date.getHours()+"<br>");//9
+		   date.setYear(19); //1919，没有用
+		   document.write("新设置的年份："+date.getFullYear()+"<br>");
+		   date.setFullYear(2019);//2019
+		   document.write("新设置的年份："+date.getFullYear()+"<br>");
+		</script>
+	</body>
+</html>

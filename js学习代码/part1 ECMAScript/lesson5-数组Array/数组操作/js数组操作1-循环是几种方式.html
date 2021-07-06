@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//1. for..of 循环 for(const item of items)循环遍历数组项，如下所示遍历colors列表
+		 /* const colors=['red','green','blue','yellow','cian','purple'];
+		  var i=1;
+		  for (const color of colors) {
+		  	document.write("<h"+i+">"+color+"</h"+i+">"+"<br/>");
+			i++; 
+		  }*/
+		  //2.for
+		  /*const colors=['red','green','blue','yellow','cian','purple'];
+		  for (var i=1;i<colors.length;i++) {
+		  	document.write("<h"+i+">"+colors[i]+"</h"+i+">"+"<br/>");
+		  }*/
+		  //3.forEach()
+		  const colors=['red','green','blue','yellow','cian','purple'];
+		  colors.forEach(function callback(value,index)
+		  {
+			  document.write("<h"+(index+1)+">"+value+"</h"+(index+1)+">"+"<br/>");
+		  });
+		</script>
+	</body>
+</html>

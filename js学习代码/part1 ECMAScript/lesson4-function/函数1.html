@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function printRect() //定义函数
+			{
+				var winth=10;
+				var height=5;
+				for (var i=0;i<height;i++) {
+					for (var j=0;j<winth;j++) {
+						document.write("*");
+					}
+					document.write("<br>");
+				}
+			}
+			function starRect(width,height) //定义函数
+			{
+				 
+				for (var i=0;i<height;i++) {
+					for (var j=0;j<width;j++) {
+						document.write("*");
+					}
+					document.write("<br>");
+				}
+			}
+			//printRect();//调用函数
+			starRect(20,6);
+		</script>
+	</body>
+</html>

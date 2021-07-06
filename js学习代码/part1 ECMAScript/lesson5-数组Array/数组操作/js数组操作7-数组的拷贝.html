@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数组的拷贝其实就是以上某些数组操作的运用
+			//1.concat
+			const org=['pussy','lips','breast','vagina'];
+			var cpy1=[].concat(org);
+			document.write("cpy1:"+cpy1);
+			document.write("<br/>");
+			//2. ...操作符
+			var cpy2=[...org];
+			document.write("cpy2:"+cpy2);
+			document.write("<br/><br/>");
+			//3.slice()没有参数
+			var cpy3=org.slice();
+			document.write("cpy3:"+cpy3);
+		</script>
+	</body>
+</html>

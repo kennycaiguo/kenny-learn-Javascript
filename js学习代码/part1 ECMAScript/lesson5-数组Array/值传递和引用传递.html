@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.基本数据类型的赋值都是值传递
+			var val=100;
+			var val1=val;
+			document.write("val1="+val1+"<br>");//val1=100
+			//修改val的值不会影响到val1；
+			val=200;
+			document.write("val1="+val1+"<br>");//val1=100 还是一百
+			//引用传递,相当于两个变量指向同一块内存地址，可以通过任意一个修改内存中的内容
+			var arr=[100,300,50];
+			var arr1=arr;
+			document.write("arr1="+arr1+"<br>");//100,300,50
+			arr1[0]=10 //修改arr1的元素值，arr对应的元素也改变
+			document.write("arr="+arr+"<br>");//10,300,50
+			arr[0] =200;//修改arr的元素值，arr1对应的元素也改变
+			document.write("arr1="+arr1+"<br>");//arr1=200,300,50
+			//对象之间的赋值也是引用传递
+			var obj={
+				   name:'Rosy',age:20,salary:1000
+				};
+			var obj2=obj;
+			obj2.name='Jackline';
+			document.write("obj.name="+obj.name+"<br>");//obj.name=Jackline
+			obj.name='Mary';
+			document.write("obj2.name="+obj2.name+"<br>");//obj2.name=Mary
+			
+			//测试
+			var valarr=[10,3,50];
+			function chageval(array)
+			{
+				array[0]=20;
+			}
+			chageval(valarr);
+			document.write("valarr="+valarr+"<br>");//valarr=20,3,50
+			document.write("======================="+"<br>");
+			var ls=[1,2,3];
+			function pointToAnother(array)
+			{
+				array=[4,5,6];//array指向另外一个数组,不会改变实参的值
+			}
+			pointToAnother(ls);
+			document.write("ls="+ls+"<br>");//ls=1,2,3
+			
+		</script>
+	</body>
+</html>

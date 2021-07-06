@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.增加
+			var person={};
+			person.name="LiLei";
+			person.gender='female';
+			person.age=20;
+			person.info=function()
+			{
+				return `Person[name:${this.name},age:${this.age},gender:${this.gender}]`;
+			}
+			document.write("Person:<br>"+person.info()+"<br>");
+			//2.删除属性，使用delete
+			delete person.gender;
+			//document.write("Person:<br>"+person.info()+"<br>");
+			console.log(person)
+			//3.修改,注意，修改一个不存在的属性就相当于添加一个新属性
+			person.name="Luis";
+			console.log(person);//{name: "Luis", age: 20, info: ƒ}
+			//4.查询，也就是访问属性
+			document.write("name:"+person.name+"<br>");
+			
+		</script>
+	</body>
+</html>
