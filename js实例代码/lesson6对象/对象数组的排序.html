@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var objs=[
+				{
+					name:"Tom",
+					age:16,
+					salary:3000
+				},
+				{
+					name:"jerry",
+					age:18,
+					salary:5000
+				},
+				{
+					name:"Jone",
+					age:15,
+					salary:2000
+				},
+				{
+					name:"Peter",
+					age:17,
+					salary:3500
+				},
+				{
+					name:"Smith",
+					age:19,
+					salary:1000
+				},
+				{
+					name:"Geroge",
+					age:16,
+					salary:4000
+				},
+				{
+					name:"Bluce",
+					age:17,
+					salary:3300
+				}
+				
+			];
+			console.log(objs);
+			//1.按年龄升序排序
+			function mycompare(obj1,obj2)
+			{
+				return obj1.age-obj2.age;
+			}
+			objs.sort(mycompare);
+			console.log(objs);
+			//2.按工资降排序
+			function mycompare2(obj1,obj2)
+			{
+				return obj2.salary-obj1.salary;
+			}
+			var objs2=objs;
+			objs2.sort(mycompare2);
+			console.log(objs2);
+		</script>
+	</body>
+</html>

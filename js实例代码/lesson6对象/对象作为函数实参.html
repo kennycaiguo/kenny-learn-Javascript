@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//将对象作为函数的参数可以实现其属性值的交换
+			var nums={
+				num1:100,
+				num2:200
+			}
+			function changeVal(obj)
+			{
+				var tmp=0;
+				tmp=obj.num1;
+				obj.num1=obj.num2;
+				obj.num2=tmp
+			}
+			document.write(`before change,nums=[${nums.num1},${nums.num2}]<br>`);
+			changeVal(nums);
+			document.write(`After change,nums=[${nums.num1},${nums.num2}]<br>`);
+		</script>
+	</body>
+</html>
