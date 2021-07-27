@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document error event</title>
+</head>
+<body>
+    <!--
+        error事件是给元素添加的。当元素加载失败触发该事件
+    -->
+    <img id="pic" src="./girl.png" alt="">
+<script>
+    const img = document.getElementById('pic');
+    img.onerror=function(e){
+       console.log('[e ]', e);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    爱好：
+        <input type="checkbox" name="hobby" id="climb">登山
+        <input type="checkbox" name="hobby" id="swing">游泳
+        <input type="checkbox" name="hobby" id="ball">打球
+        <input type="checkbox" name="hobby" id="boxing">拳击
+        <input type="checkbox" name="hobby" id="rock">攀岩
+        <hr>
+        <input type="radio" name="choice" id="allBtn">全选
+        <input type="radio" name="choice" id="reserveBtn">反选
+        <input type="radio" name="choice" id="noBtn">不选
+        <script>
+            var inputs=document.getElementsByName("hobby");
+            var radios;
+            var allChecked=false;
+      
+            radios=document.getElementsByName("choice");
+            console.log(radios);
+            radios[0].addEventListener("click",checkAll,false);
+            radios[1].addEventListener("click",reverseChk,false);
+            radios[2].addEventListener("click",uncheck,false);
+            function checkAll(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=true;
+                }
+            }
+            function reverseChk(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=!inputs[i].checked;
+                    // if(inputs[i].checked)
+                    // {
+                    //     inputs[i].checked=false;
+                    // }
+                }
+            }
+            function uncheck(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=false;
+                }
+            }
+         //为每一个CheckBox添加事件，当所有爱好都选中，全选按钮选中，否则不选中,已及将不选按在选中昨天取消
+         for (let i = 0; i < inputs.length; i++) {
+              inputs[i].onclick=function()
+             {
+                //  if(radios[2].checked)
+                //  {
+                //      radios[2].checked=false;
+                //  }
+                 if(!inputs[i].checked)
+                 {
+                    if(radios[0].checked)
+                    {
+                        radios[0].checked=false;
+                    }
+                 }
+               var counter=0;
+               for(var j=0;j<inputs.length;j++)
+               {
+                   if (inputs[j].checked) {
+                       counter++;
+                   }
+               }
+               if(counter===inputs.length)
+               {
+                   radios[0].checked=true;
+               }
+               if(counter===0)
+               {
+                   if(!radios[2].checked)
+                   {
+                        radios[2].checked=true;
+                   }
+                  
+               } else{
+                   if(radios[2].checked)
+                   {
+                       radios[2].checked=false;
+                   }
+               }
+             }
+             
+         }
+        </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托 </title>
+    <style>
+        .active{
+            background-color: blueviolet;
+            border-style: solid;
+            width:260px;
+            font-size: x-large;
+            color: chartreuse;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        事件委托：内层的元素将点击事件的响应处理功能委托给父级元素
+        使用委托的好处：1.可以加快页面响应速度，因为如果一个ul有成百上千个li，也只需要给ul添加一个事件处理，不用为每一个里添加事件，也提高开发效率
+                       2.动态添加是子元素也有事件处理能力。
+        使用委托的前提：需要使用委托的事件必须支持事件冒泡机制               
+    -->
+    <ul id="ul1">
+        <li>I am the First</li>
+        <li>I am the second</li>
+        <li>I am the third</li>
+        <li>I am the fourth</li>
+        <li>I am the fifth</li>
+    </ul>
+    <script>
+        /*
+          实现点击每一个里删除它里面的内容
+        */
+       //原来的方法，给每一个li添加事件处理
+    //  var lis =document.getElementsByTagName("li");
+    //  for (const li of lis) {
+    //      li.onclick=function(){
+    //          console.log('[ li.innerHTML ]', li.innerHTML);
+    //      }
+    //  }
+    </script>
+    <script>
+          /*
+          实现点击每一个里删除它里面的内容
+        */
+       //采用委托方式
+        const ul = document.getElementById('ul1');
+        ul.onclick=(e)=>{
+            e=e||window.event;
+            //console.log('[ e.target.nodeName ]', e.target.nodeName.toLocaleLowerCase);
+            if(e.target.nodeName.toLocaleLowerCase() ==='li')
+            {
+               //console.log('[ e.target.nodeName ]', e.target.nodeName);
+               console.log('[content]', e.target.innerHTML);
+            }
+        }
+        ul.onmouseover=function(e){
+            if(e.target.nodeName.toLocaleLowerCase() ==='li')
+            {
+               e.target.className="active";
+            }
+        }
+        ul.onmouseout=function(e){
+            if(e.target.nodeName.toLocaleLowerCase() ==='li')
+            {
+               e.target.className=null;
+            }
+        }
+
+        const newLi = document.createElement('li');
+        newLi.innerHTML="i am the new one";
+        ul.appendChild(newLi);
+    </script>
+</body>
+</html>

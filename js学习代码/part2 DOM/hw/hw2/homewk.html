@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器淡出广告效果</title>
+     <style>
+         *{
+              margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+
+         #div1{
+            width: 300px;
+            height: 200px;
+            background-color: darkolivegreen;
+            position: fixed;
+            right: 0;
+            /* bottom: 0; */
+            bottom: -200px;
+         }
+         span{
+             width: 30px;
+             height: 30px;
+             line-height: 30px;
+             float: right;
+             background-color: red;
+             border-radius: 50%;
+             text-align: center;
+         }
+     </style>
+</head>
+<body>
+    <!--
+        在浏览器的右下角淡出广告提示框，需要有关闭的按钮
+    -->
+    <div id="div1">
+        <span>X</span>
+        Nice Foods In Hotel Sexy
+        <img src="./fanddr.jpg" alt="" >
+    </div>
+    <script>
+        var div=document.getElementById("div1");
+        var span=document.getElementsByTagName("span")[0];
+        //定义一个定时器
+        var timer;
+        const INTERVAL=100;
+        timer=setInterval(divMoveUp,INTERVAL);
+        //写一个方法修改div距离浏览器底部的距离
+        function divMoveUp(){
+            //定义div上浮的速度
+            const SPEED=3;
+           //先获得div距离浏览器底部的距离
+           var style=getStyle(div);
+           var divBottom=parseInt(style.bottom);
+          // console.log(divBottom);
+          if(divBottom<0){
+              //修改距离
+              div.style.bottom=divBottom+SPEED+"px";
+          }else{
+              //停止 定时器
+              clearInterval(timer);
+          }
+        }
+        divMoveUp();
+        //获得内部样式表
+        function getStyle(el){
+          return  getComputedStyle? getComputedStyle(el):el.currentStyle;
+        }
+
+        span.onclick=function(){
+            div.style.display="none";
+        }
+    </script>
+</body>
+</html>

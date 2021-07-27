@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="ul1">
+			你好！
+			<li>第1个li节点</li>
+			<li>第2个li节点</li>
+			<li id="mid">第3个li节点</li>
+			<li>第4个li节点</li>
+			<li>第5个li节点</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			  节点之间的关系：
+			  0.children父节点的所有子节点
+			  1.childNodes父节点的所有子节点
+			  2.firstChild父节点第一个子节点
+			  3. firstElementChild 第一个元素子节点
+			  4.lastChild父节点最后一个子节点
+			  5 lastElementChild最后一个元素节点
+			  6.parentNode元素的父节点
+			  7.nextSibling前一个兄弟节点
+			  8.previousSibling后一个兄弟节点
+			  9.previousElementSibling 上一个元素兄弟
+			  10.nextElementSibling 下一个元素兄弟
+			  11.parentElement元素的父节点
+			*/
+		   var ul=document.getElementById("ul1");
+		   var childnodes=ul.childNodes;//是一个NodeList节点集合，包括文本空格和li
+		   console.log(childnodes);
+		   console.log(ul.firstChild);//"你好！"
+		   console.log(ul.firstElementChild);//<li>第1个li节点</li>
+		   console.log(ul.lastElementChild);//<li>第5个li节点</li>
+		   console.log(ul.lastChild);//#text
+		   console.log("================================");
+		   var li3=document.getElementById("mid");
+		   console.log(li3.parentNode);//<ul id="ul1">...</ul> li的父亲节点是ul
+		   console.log(li3.previousSibling);//#text
+		   console.log(li3.nextSibling);//#text
+		   console.log(li3.previousElementSibling);//<li>第2个li节点</li>
+		   console.log(li3.nextElementSibling);//<li>第4个li节点</li>
+		   console.log("================================");
+		   console.log(ul.children);//HTMLCollection
+		   console.log(ul.parentElement);//<body>...</body>
+		</script>
+	</body>
+</html>

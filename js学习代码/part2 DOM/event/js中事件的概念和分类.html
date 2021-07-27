@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .click{
+            width: 400px;
+            height: 200px;
+            background-color: palevioletred;
+            border-style: dashed;
+
+        }
+        .dblclick{
+            width: 600px;
+            height: 400px;
+            background-color: yellow;
+            border-style: solid;
+        }
+        .mouseover{
+            width: 700px;
+            height: 500px;
+            background-color: lime;
+            border-style: dotted;
+        }
+        .mouseout{
+            width: 400px;
+            height: 200px;
+            background-color: gray;
+            border-style: none;
+        }
+        .mousemove{
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        事件分类：
+        1.鼠标事件：
+          onclick:鼠标单击
+          ondblclick：表示双击
+          onmouseover：鼠标悬停
+          onmouseout：鼠标移出元素
+          onmousedown：鼠标按下
+          onmouseup:鼠标弹起
+          onmousemove：鼠标移动
+          onmouseenter:
+          onmouseleave
+        2.HTML事件
+          onload：页面加载事件
+          onscroll：页面滚动
+          onsubmit：提交表单
+          onchange：内容发生变化
+          onfocus:元素获得焦点
+          onblur：元素失去焦点
+        3.键盘事件：
+           onkeydown：任意键被按下
+           onkeypress：和onkeydown类似，但是功能键不能触发
+           onkeyup：任意键被松开    
+    -->
+    <div id="test">test div</div>
+    <script>
+        var div=document.getElementById("test");
+        div.onclick=function(){
+            div.className="click";
+        }
+        div.ondblclick=function(){
+            div.className="dblclick";
+        }
+        div.onmouseover=function(){
+            div.className="mouseover";
+        }
+        div.onmouseout=function(){
+            div.className="mouseout";
+        }
+        div.onmousedown=function(){
+            div.style.textAlign="center";
+             
+        }
+        div.onmouseup=function(){
+            div.style.textAlign="left";
+        }
+        div.onmousemove=function(){
+            div.className="mousemove";
+        }
+        div.onmouseenter=function(){
+            div.style.textAlign="center";
+            div.style.fontFamily="Times New Roman";
+            div.style.fontSize="50px";
+        }
+        div.onmouseleave=function(){
+            div.style.textAlign="right";
+            div.style.fontFamily="Ariel";
+            div.style.fontSize="18px";
+        }
+    </script>
+</body>
+</html>

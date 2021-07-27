@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM addEventLister处理程序</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 100px;
+            border-style: solid;
+            background-color: aqua;
+        }
+
+        .over{
+            border-style: dashed;
+            color:blueviolet;
+            background-color: deeppink;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        DOM2级事件处理，
+        添加事件：使用元素.addEventLister(param1,param2,param3)
+        param1：事件名称，param2：事件处理函数名称，也可以使用匿名函数，param3，true：表示捕获事件并且处理，false表示事件冒泡，这是默认值
+        删除事件：使用元素.removeEventLister(param1,param2,param3);param1和param2和上面一样，param3必须为true，否则没有作用
+    -->
+    <div id="div1">hello div</div> <button onclick="delEvent();">删除div事件</button>
+    <ul>
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <script>
+        //div
+        var div=document.getElementById("div1");
+        div.addEventListener("click",changeStyle,true);
+        function changeStyle(){
+           div.className="box";
+        }
+         var lis=document.getElementsByTagName("li");
+        for(var i=0;i<lis.length;i++)
+        {
+            lis[i].addEventListener("mouseover",mouseOver,false);
+            lis[i].addEventListener("mouseleave",mouseLeave,false);
+        }
+        function mouseOver(){
+            this.className="over";
+        }
+        function mouseLeave(){
+            this.className=null;
+        }
+
+        function delEvent(){
+            div.removeEventListener("click",changeStyle,true);
+        }
+    </script>
+</body>
+</html>

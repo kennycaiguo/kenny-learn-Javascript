@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象的常用属性</title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            border: solid 1px ;
+        }
+
+        #ul1{
+            width: 300px;
+            height: 300px;
+            background-color:purple;
+            border: solid 1px deeppink ;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">hello</div>
+    <br>
+    <ul id="ul1">
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <!--
+        clientX,clientY:鼠标当前位置距离视口左边缘的距离和上边缘的距离
+        pageX,pageY：鼠标当前位置距离页面左边缘的距离和上边缘的距离
+        offsetX,offsetY：鼠标当前位置距离元素自身左边缘的距离和上边缘的距离
+        screenX,screenY：鼠标当前位置距离屏幕左边缘的距离和上边缘的距离
+        currentTarget:正在发生，响应事件的元素
+        target：当前哪个具体的元素的事件被触发了。该属性存在ie兼容性问题，ie8以下版本不支持，ie8需要使用srcElement属性
+        给ul添加事件后，点击ul，target是ul的li，currentTarget是ul
+    -->
+    <script>
+        var div=document.getElementById("div1");
+        div.onclick=function(e){
+            e=e||window.event;
+            console.log("clientX:"+e.clientX);
+            console.log("clientY:"+e.clientY);
+            console.log("pageX:"+e.pageX);
+            console.log("pageY:"+e.pageY);
+            console.log("offsetX:"+e.offsetX);
+            console.log("offsetY:"+e.offsetY);
+            console.log("screenX:"+e.screenX);
+            console.log("screenY:"+e.screenY);
+            console.log("==================================");
+        }
+        // document.body.onclick=function(e){
+        //     e=e||window.event;
+        //    console.log(e.currentTarget);
+        //    console.log(e.target);
+        // }
+        var ul=document.getElementById("ul1");
+        // ul.onclick=function(e){
+        //     e=e||window.event;
+        //     console.log(e.currentTarget);
+        // }
+
+        var lis=document.getElementsByTagName("li");
+        for (var li of lis) {
+            li.onclick=function(e){
+                e=e||window.event;
+                console.log(e.currentTarget);
+                console.log(e.target);
+            }
+        }
+
+        document.onclick=function(e){
+                e=e||window.event;
+                console.log(e.currentTarget);
+                console.log(e.target);
+            }
+    </script>
+</body>
+</html>

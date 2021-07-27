@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document DOMContentLoaded event</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>hello</li>
+        <li>erery</li>
+        <li>one</li>
+        <li>how</li>
+        <li>r you</li>
+    </ul>
+    <!--
+      DOMContentLoaded事件必须使用DOM2及事件程序,不能使用document.onxxx=function(){}的方式
+      DOMContentLoaded事件必须给document对或者window对象添加。该事件比onload事件先执行，因为它只负责分析文档结构
+    -->
+    <script>
+       window.onload=()=>{
+           console.log('[窗口加载完成 ]');
+       }
+    //    document.addEventListener("DOMContentLoaded",(e)=>{
+    //        console.log('[文档内容加载完毕]');
+    //        console.log('%c [ e ]', 'font-size:13px; background:pink; color:#bf2c9f;', e);
+    //    })
+    window.addEventListener("DOMContentLoaded",(e)=>{
+           console.log('[文档内容加载完毕]');
+           console.log('%c [ e ]', 'font-size:13px; background:deeppink; color:#bf2c9f;', e);
+       })
+    </script>
+</body>
+</html>

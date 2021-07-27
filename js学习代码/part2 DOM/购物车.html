@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        table,td,th{
+            border: 1px solid;
+            
+        }
+        table{
+            width: 600px;
+            border-collapse: collapse;
+            margin: 100px auto;
+        }
+
+        tr{
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+        <th>产品名称</th>
+        <th>产品单价</th>
+        <th>购买数量</th>
+        <th>总价格</th>
+    </tr>
+    <tr>
+        <td>iphone5</td>
+        <td>500</td>
+        <td>
+           <input type="button" value="-" onclick="minus(this);">
+           <span>1</span>
+           <input type="button" value="+" onclick="add(this)">
+        </td>
+        <td class="money">500</td>
+    </tr>
+    <tr>
+        <td>iphone6</td>
+        <td>600</td>
+        <td>
+        <input type="button" value="-" onclick="minus(this);">
+           <span>1</span>
+        <input type="button" value="+" onclick="add(this)">
+        </td>
+        <td class="money">600</td>
+    </tr>
+    <tr>
+        <td>iphone7</td>
+        <td>700</td>
+        <td>
+            <input type="button" value="-" onclick="minus(this);">
+            <span>1</span>
+            <input type="button" value="+" onclick="add(this)">   
+        </td>
+        <td class="money">700</td>
+    </tr>
+    <tr>
+        <td colspan="3">总金额</td>
+        <td id="total">1800</td>
+    </tr>
+    </table>
+    <script>
+         
+         function add(obj)
+         {
+           //获得现有商品数量
+           var span=obj.previousElementSibling;
+           var count=parseInt(span.innerHTML);
+           //将数量加1
+            count++;
+            //修改显示数量
+            span.innerHTML=count;
+            //获取单价
+            var td=obj.parentNode.previousElementSibling;
+            var unitPrice=parseInt(td.innerHTML);
+            //获取总价
+            var tdPrice=obj.parentNode.nextElementSibling;
+            var lineTotal=parseInt(tdPrice.innerHTML);
+            //console.log(lineTotal);
+            //计算每一行的总价
+            lineTotal=unitPrice*count;
+            tdPrice.innerHTML=lineTotal;
+            //获取总价
+            var tdTotal=document.getElementById("total");
+            var totalPrice=parseInt(tdTotal.innerHTML);
+            totalPrice=0;
+            //获取所有行的总价
+             var moneys=document.getElementsByClassName("money");
+             //计算最后总价
+             for (let i = 0; i < moneys.length; i++) {
+                
+                 totalPrice+=parseInt(moneys[i].innerHTML);
+             }
+             tdTotal.innerHTML=totalPrice;
+         }
+
+         function minus(obj)
+         {
+            //获得现有商品数量
+            var span=obj.nextElementSibling;
+           var count=parseInt(span.innerHTML);
+           //将数量减1
+           if(count>1)
+           {
+            count--;
+           }
+            
+            //修改显示数量
+            span.innerHTML=count;
+            //获取单价
+            var td=obj.parentNode.previousElementSibling;
+            var unitPrice=parseInt(td.innerHTML);
+            //获取总价
+            var tdPrice=obj.parentNode.nextElementSibling;
+            var lineTotal=parseInt(tdPrice.innerHTML);
+            //console.log(lineTotal);
+            //计算每一行的总价
+            lineTotal=unitPrice*count;
+            tdPrice.innerHTML=lineTotal;
+            //获取总价
+            var tdTotal=document.getElementById("total");
+            var totalPrice=parseInt(tdTotal.innerHTML);
+            totalPrice=0;
+            //获取所有行的总价
+             var moneys=document.getElementsByClassName("money");
+             //计算最后总价
+             for (let i = 0; i < moneys.length; i++) {
+                
+                 totalPrice+=parseInt(moneys[i].innerHTML);
+             }
+             tdTotal.innerHTML=totalPrice;
+         }
+    </script>
+</body>
+</html>

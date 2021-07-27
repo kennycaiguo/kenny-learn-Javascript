@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document readystatechange event</title>
+</head>
+<body>
+    <!--
+        document对象有一个叫做readyState的属性，它有3种状态
+             1.loading，表示正在加载HTML文档并解析
+             2.interactive，表示正在加载外部资源
+             3.complete，表示整个文档加载结束
+        由于readState的改变触发readystatechange事件
+    -->
+<script>
+    document.onreadystatechange=function(e){
+        console.log('[the doc is ready]');
+        console.log('[ e ]', e);
+        console.log('[ document.readyState ]', document.readyState);//输出两次，loading->interactive，interactive->complete
+    }
+    
+</script>
+</body>
+</html>

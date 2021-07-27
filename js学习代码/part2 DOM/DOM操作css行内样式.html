@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" style="width:100px;">hello div</div>
+    <script>
+       var div=document.querySelector("#box");
+       div.style="width:300px;height:80px;background-color:purple;text-align:center;line-height:80px";
+       //获取每一个样式节点
+       console.log(div.style.width);
+       console.log(div.style.height);
+       console.log(div.style.backgroundColor);
+       console.log(div.style.textAlign);
+       console.log(div.style.lineHeight);
+       console.log(div.style);//获取元素的元素对象，CSSStyleDeclaration是一个类数组对象，包含元素所有样式的属性包含没有设置的属性
+       console.log(div.style.cssText);//获取css行内样式的文本，只获取已经设置了的属性
+       //可以逐个样式设置
+       div.style.width="800px";
+       div.style.height="50px";
+       div.style.lineHeight="50px";
+       div.style.backgroundColor="lime";
+       div.style.textAlign="left";
+       div.style.padding="10px";
+       div.style.borderStyle="solid";
+       div.style.fontWeight="700";//加粗修改
+       div.style.fontSize="18px";//修改字号
+       div.style.fontFamily="华文行楷";//修改字体
+       div.style.fontFamily="Times New Roman";//修改字体
+       div.style.color="deeppink";
+       div.style.cssText+="margin-left:10px";//使用+=的方式添加样式
+    </script>
+</body>
+</html>

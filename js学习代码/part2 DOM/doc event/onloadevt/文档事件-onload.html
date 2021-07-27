@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document onload event</title>
+</head>
+<body>
+    <!--
+        load事件是添加到body上的,也可以使用window.onload
+        onload事件只能用于document(body)本身，框架，图像和脚本,其它元素都没有onload事件
+        window对象和body对象和img对象的onl事件可以自动调用，script对象的onload事件必须手动调用
+    -->
+   <img src="./3dg.png" alt="">
+   <img src="./3dg2.png" alt="">
+   <img id="img3" src="./3dg3.png" alt="">
+    <script id="test">
+        a=100;
+        b=200;
+        names=["james1","james1","james1","james1","james1","james1"]
+        var count=0;
+        for (let i = 0; i < 50; i++) {
+             
+           count++; 
+        }
+
+    </script>
+    <script>
+       const img3 = document.getElementById('img3');
+       img3.onload=function(e){
+           console.log('img3 load finished!!!');
+           console.log('[ e ]', e);
+       }
+         const scr = document.getElementById('test');
+        //  console.log('[ scr ]', scr);
+        //  scr.onload=function(e){
+        //      console.log('[ load finished]');
+        //      console.log('[ count ]', count);
+        //  }
+        //  scr.onload();//script的onload需要显式调用
+        // document.body.onload=function(e){
+        //     console.log('[ e.type ]', e.type);
+        //     console.log('[ e ]', e);
+        //     console.log('load finished');
+        // }
+        window.onload=function(e){
+            console.log('[window onload， e.type:]', e.type);
+            console.log('[ e ]', e);
+            console.log('load finished');
+        }
+    </script>
+</body>
+</html>

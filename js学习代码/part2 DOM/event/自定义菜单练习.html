@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>costum menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        ul{
+            list-style: none;
+            background-color: #ccc;
+            width: 150px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-left: 30px;
+            display: none;
+        }
+        li{
+            line-height: 3em;
+            background-color: #eee;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        实现思路：1.取消文档默认的右键菜单2.利用一个ul和三个li创建自定义菜单3.为文档对象添加自定义菜单
+        4.需要为文档的oncontexmenu事件添加代码,点击右键需要获取点击相对于视口位置，设置到菜单，5.点击左键菜单消失
+        6.为每一个li添加mouseover和mouseout事件
+
+    -->
+    <ul id="menu">
+        <li>剪切</li>
+        <li>复制</li>
+        <li>粘贴</li>
+    </ul>
+    <script>
+        //获取ul
+        var menu=document.getElementById("menu");
+        var lis=document.getElementsByTagName("li");
+        document.oncontextmenu=function(e){
+            e=e||window.event;
+            //1.取消文档默认的右键菜单
+            e.preventDefault? e.preventDefault():e.returnValue=false;
+            //获取点击的坐标
+            var x=e.clientX;
+            var y=e.clientY;
+            
+            //显示菜单
+            menu.style.display="block";
+            //设置菜单的显示坐标
+            menu.style.left=x+"px";
+            menu.style.top=y+"px";
+        }
+        //实现点击鼠标左键菜单消失
+        document.onclick=function(){
+            menu.style.display="none";
+        }
+        //给每一个li添加onmouseover和onmouseout事件的处理函数
+        for (const li of lis) {
+            li.onmouseover=function(){
+                li.style.backgroundColor="#ccc";
+            }
+            li.onmouseout=function(){
+                li.style.backgroundColor="#eee";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">hello div</div>
+    <button id="stop">stop</button>
+    <script>
+        var div=document.getElementById("div1");
+        var counter=0;
+        function setRanColor()
+        {
+           var color=~~(Math.random()*(0xffffff+1));
+           var colorStr="#"+color.toString(16);
+           div1.style.color=colorStr;
+           counter++;
+        }
+       var id= setInterval(setRanColor,1000);
+        var stoped=false;
+        var btn=document.getElementById("stop");
+        btn.onclick=function(){
+            if(!stoped){
+                clearInterval(id);
+                stoped=true;
+                btn.innerText="start";
+            } else{
+                id=setInterval(setRanColor,1000);
+                btn.innerText="stop";
+                stoped=false;
+            }
+            
+        }
+
+    </script>
+</body>
+</html>

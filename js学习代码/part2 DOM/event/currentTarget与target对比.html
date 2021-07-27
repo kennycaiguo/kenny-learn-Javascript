@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>currentTarget与target对比</title>
+    <style>
+        ul{
+            list-style: none;/*去除小圆点*/
+        }
+        li{
+            line-height: 2em;
+            background-color: blueviolet;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li>我是第1个li</li>
+        <li>我是第2个li</li>
+        <li>我是第3个li</li>
+        <li>我是第4个li</li>
+        <li>我是第5个li</li>
+    </ul>
+    <script>
+        var ul=document.getElementById("ul1");
+        ul.onclick=function(e){
+            e=e||window.event;
+            var target=e.target||e.srcElement;
+            console.log("target:");
+            console.log(target);
+            console.log("currentTarget:");
+            console.log(e.currentTarget);
+        }
+    </script>
+</body>
+</html>

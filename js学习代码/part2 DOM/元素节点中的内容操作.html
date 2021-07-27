@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box1">
+			<p>hello world</p>
+			hello js
+		</div>
+		<div id="box2">
+			<p>p of  box2</p>
+		</div>
+		<input type="text">
+		<button>按钮</button>
+		<script type="text/javascript">
+			//获取元素节点中的内容
+			var div1=document.getElementById("box1");
+			console.log(div1.firstChild);//#text,空格符也是
+			console.log(div1.firstElementChild);//<p>hello world</p>，这是第一个元素子节点
+			console.log(div1.innerHTML);/*<p>hello world</p>
+			                               hello js  拿到所有内容*/
+			var input=document.getElementsByTagName("input")[0];
+			input.value="hello";
+			var but=document.querySelector("button");
+			but.innerText="button";
+			but.onclick=function(){
+				//alert("button clicked!!!");
+				window.open("https://www.facebook.com","face book");
+			}
+		</script>
+	</body>
+</html>

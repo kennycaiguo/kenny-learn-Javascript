@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端移动元素练习</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            position:fixed;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var div=document.getElementById("box");
+        div.ontouchstart=function(e){
+          //获取div离左边缘和上边缘的距离
+          var disX=div.offsetLeft;
+          var disY=div.offsetTop;
+        //   获取鼠标点击点离左边缘和上边缘的距离
+        var touchX=e.targetTouches[0].clientX;
+        var touchY=e.targetTouches[0].clientY;
+        //添加移动事件
+         div.ontouchmove=function(){
+           div.style.left=e.targetTouches[0].clientX-touchX+disX+"px";
+           div.style.top=e.targetTouches[0].clientY-touchY+disY+"px";
+         }
+        }
+    </script>
+</body>
+</html>

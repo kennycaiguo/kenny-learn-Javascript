@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Load Demo</title>
+</head>
+<body>
+    <!-- <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.aliexpress.com%2Fitem%2F4000469670896.html&psig=AOvVaw3vMsPHa4RdHS7855aEVDvi&ust=1627492834863000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjoh_7jg_ICFQAAAAAdAAAAABAD" alt=""> -->
+   <img src="https://img1.baidu.com/it/u=2333056839,1911722782&fm=26&fmt=auto&gp=0.jpg" alt="">
+    <img src="http://img1.juimg.com/150312/330704-150312123Z780.jpg" alt="">
+<script>
+    const img1 = document.querySelector('img');
+    console.log('[ document.readyState ]', document.readyState);
+    img1.onload=(e)=>{
+        console.log('[ 第一张图片加载完成 ]');
+    }
+    img1.onerror=(e)=>{
+        console.log('[第一张图片图片失败]');
+    }
+
+    document.addEventListener("DOMContentLoaded",(e)=>{
+        console.log('[DOM树结构加载完成！]');
+    });
+    document.addEventListener("readystatechange",(e)=>{
+        console.log('[ document.readyState ]', document.readyState);
+    });
+    window.onload=()=>{
+        console.log('[页面所有内容加载完成！]');
+    }
+</script>
+</body>
+</html>

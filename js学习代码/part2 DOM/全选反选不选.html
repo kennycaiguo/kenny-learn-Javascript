@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    爱好：
+        <input type="checkbox" name="hobby" id="climb">登山
+        <input type="checkbox" name="hobby" id="swing">游泳
+        <input type="checkbox" name="hobby" id="ball">打球
+        <input type="checkbox" name="hobby" id="boxing">拳击
+        <input type="checkbox" name="hobby" id="rock">攀岩
+        <hr>
+        <input type="radio" name="choice" id="allBtn">全选
+        <input type="radio" name="choice" id="reserveBtn">反选
+        <input type="radio" name="choice" id="noBtn">不选
+        <script>
+            var inputs=document.getElementsByName("hobby");
+            var radios;
+            var allChecked=false;
+            //console.log(inputs);
+            for(var i=0;i<inputs.length;i++)
+            {
+                inputs[i].addEventListener("click",chRadioState2,false);
+            }
+            var count=0;
+            
+            function chRadioState2(){
+                if(radios[2].checked){
+                    radios[2].checked=false;
+                }
+               
+               allChecked=getChkbxsState();
+               if(allChecked)
+               {
+                   radios[0].checked=true;
+               }
+               else{
+                radios[0].checked=false;
+               }
+            }
+            //检查是否已经选择了所以项，如果是返回true，只要有一项没有选择，就返回false；
+            function getChkbxsState(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    if(!inputs[i].checked)
+                    {
+                       return false;
+                    }
+                }
+                return true;
+            }
+             radios=document.getElementsByName("choice");
+            console.log(radios);
+            radios[0].addEventListener("click",checkAll,false);
+            radios[1].addEventListener("click",reverseChk,false);
+            radios[2].addEventListener("click",uncheck,false);
+            function checkAll(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=true;
+                }
+            }
+            function reverseChk(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=!inputs[i].checked;
+                    // if(inputs[i].checked)
+                    // {
+                    //     inputs[i].checked=false;
+                    // }
+                }
+            }
+            function uncheck(){
+                for(var i=0;i<inputs.length;i++)
+                {
+                    inputs[i].checked=false;
+                }
+            }
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #red{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+        #green{
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+        #blue{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+
+        div{
+            margin: 50px auto;
+            padding-top: 0.1px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="red">
+        <div id="green">
+            <div id="blue"></div>
+        </div>
+    </div>
+    <script>
+        function red(){
+            console.log("red clicked");
+        }
+        function green(){
+            console.log("green clicked");
+        }
+
+        function blue(){
+            console.log("blue clicked");
+        }
+        function bodyEnv(){
+            console.log("body clicked");
+        }
+        function doc(){
+            console.log("document clicked");
+        }
+        var isBubble=false;
+        isBubble=true;
+        var redDiv=document.getElementById("red"); 
+        var greenDiv=document.getElementById("green"); 
+        var blueDiv=document.getElementById("blue");
+        redDiv.addEventListener("click",red,isBubble);
+        greenDiv.addEventListener("click",green,isBubble);
+        blueDiv.addEventListener("click",blue,isBubble);
+        document.body.addEventListener("click",bodyEnv,isBubble)
+        document.addEventListener("click",doc,isBubble);
+    </script>
+</body>
+</html>

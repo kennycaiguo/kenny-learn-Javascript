@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: chartreuse;
+            border: solid 1px pink;
+            margin-left: 10px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        input{
+            width: 50px;
+            height: 25px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        我是你的小可爱?
+        <br><br>
+        <input type="button" value="是" onclick="show();">
+        <input type="button" value="不是" onmouseover="random();">
+    </div>
+    <script>
+        
+        //逃跑功能
+        function random()
+        {
+          var div=document.getElementById("div1");
+         // console.log(div);
+          //随机获取两个边距
+          var left=Math.random()*600;
+          var top=Math.random() * 500;
+          //修改div上边距和左边距
+          div.style.marginLeft=left+"px";
+          div.style.marginTop=top+"px";
+
+        }
+
+        //数组背景图片
+        function show()
+        {
+            var div=document.getElementById("div1");
+           //给body设置
+           document.body.style.backgroundImage="url(./cute.jpg)";
+           //把div隐藏
+           div.style.display="none";
+        }
+    </script>
+</body>
+</html>

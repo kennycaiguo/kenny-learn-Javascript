@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.onclick=function(e){
+           e=e||window.event;
+           console.log("event:"+e.type);
+        //    console.log(e.altKey);
+        //    console.log(e.shiftKey);
+        //    console.log(e.ctrlKey);
+        }
+        document.onmouseup=function(e){
+            e=e||window.event;
+           console.log("event:"+e.type);
+        }
+        document.onkeydown=function(e){
+            e=e||window.event;
+           //console.log("event:"+e.type);
+           //判断是否是alt，shift，ctrl中的一个
+        //    console.log("alt:"+e.altKey);
+        //    console.log("shift:"+e.shiftKey);
+        //    console.log("ctrl:"+e.ctrlKey);
+        //    //判断是否按下组合键
+        //    if(e.ctrlKey&&e.shiftKey){
+        //     console.log("ctrl+shift");
+        //    } else if(e.altKey && e.ctrlKey)
+        //    {
+        //     console.log("ctrl+alt");
+        //    }else if(e.altKey && e.shiftKey)
+        //    {
+        //     console.log("alt+shift");
+        //    }else if(e.ctrlKey && e.altKey && e.shiftKey)
+        //    {
+        //     console.log("ctrl+alt+shift");
+        //    }
+        console.log(e.keyCode);
+        }
+        document.onkeyup=function(e){
+            e=e||window.event;
+           console.log("event:"+e.type);
+        }
+
+    </script>
+</body>
+</html>

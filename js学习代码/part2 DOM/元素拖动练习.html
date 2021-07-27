@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag Element</title>
+     <style>
+         *{
+             margin: 0;
+             padding: 0;
+         }
+         #div1{
+             width: 100px;
+             height: 100px;
+             background-color: orange;
+             position: fixed;
+             left:0;
+             top:0;
+         }
+     </style>
+</head>
+<body>
+    <!--
+        实现鼠标拖动元素移动
+        1.为元素添加onmousedown事件处理，获取offsetX，offsetY，clientX，clientY
+        2.在onmousedown事件中为documant对象添加onmousemove事件
+        3.添加onmouseup事件，对onmousemove事件处理
+        注意：必须在元素的onmouseup事件中将document对象的onmousemove事件设置为null，否则鼠标无法脱离元素
+    -->
+    <div id="div1"></div>
+    <script>
+      var div=document.getElementById("div1");
+      var x;
+      var y;
+      div.onmousedown=function(e){
+          e=e||window.event;
+          //获取鼠标点击的点和元素左上角的偏移坐标
+          var offsetx=e.offsetX;
+          var offsety=e.offsetY;
+        //   console.log(offsetx);
+        //   console.log(offsety);
+         //为document对象添加onmousemove事件处理
+         document.onmousemove=function(e)
+         {
+            e=e||window.event; 
+            //获得鼠标相对于视口的偏移坐标
+            x=e.clientX-offsetx;
+            y=e.clientY-offsety
+            div.style.left=x+"px";
+            div.style.top=y+"px";
+         }
+        
+      }
+      div.onmouseup=function(){
+        
+          //将document对象的onmousemove事件设置为null，否则鼠标无法脱离元素
+          document.onmousemove=null;
+      }
+    </script>
+</body>
+</html>

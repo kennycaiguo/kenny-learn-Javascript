@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件对象的button属性</title>
+    <style>
+        #div1{
+         width: 100px;
+         height: 100px;
+         background-color: palevioletred;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="div1"></div>
+    <!--
+          vscode DOM snippet:
+          gid+tab=>document.getElementById('id')
+          dqs+tab=>document.querySelector('selector')
+          dce+tab=>document.createElement('elementName')
+          dqa+tab=> document.querySelectorAll('elementId');
+          console helper:1. ctrl+l=>console.log([],)
+                       2.选中内容， ctrl+l=>console.log(‘内容’，内容)
+         button属性用于点击事件，用于判断按下的设备键。
+         鼠标左键(通过onclick事件获得)的值是      0. 
+         鼠标中键（滚轮）的值是                   1.    
+         鼠标的右键(通过oncontextmenu事件获得)值是2.         
+    -->
+<script>
+    const div = document.getElementById('div1');
+    div.onclick=function(e){
+        console.log('[ e.button ]', e.button);//0
+    }
+    div.oncontextmenu=function(e){
+        e.preventDefault();b
+        console.log('[ e.button ]', e.button)//2
+    }
+</script>
+</body>
+</html>

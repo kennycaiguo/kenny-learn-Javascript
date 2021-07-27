@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.new{
+				width: 200px;
+				height: 100px;
+				background-color: deeppink;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1" class="sty1"></div>
+		<script type="text/javascript">
+			//注意元素的class属性节点非常特殊，getAttribute(。。。)和classList和className得到的都是类名字符串
+			//可以使用元素的attributes[index];得到class节点对象
+			//还可以使用.getAttributeNode("class")得到class节点对象
+			var div=document.getElementById("div1");
+			var classname=div.className;//sty1,是字符串
+			console.log(div["className"]);//sty1
+			var cls=div.getAttribute("class");//这里获取的还是string
+			var cls2=div.classList[0];//sty1,string
+			var cls1=div.attributes[1];
+			console.log(classname);//sty1
+			console.log(typeof cls);//sty1
+			console.log(cls2);
+			console.log(cls1);//class="sty1",是对象
+			console.log(div.class);//undefined
+			console.log(div["class"]);//undefined
+			console.log(div.getAttributeNode("class"));//class="sty1",是对象
+			 /*
+			   设置class属性的值
+			   1.赋值法如div.className="yourClass";
+			   2.元素.setAttribute("class","myclass");
+			   3.div["className"]="herclass";
+			   4.需要三步
+			      var newCls=document.createAttribute("class"); //创建新的class对象
+			      newCls.nodeValue="hisClass";//修改节点值
+			      div.setAttributeNode(newCls);//用新的class节点替换原来的class节点
+				5.元素.getAttributeNode("class").nodeVale=新值，比4好  
+			 */
+			console.log("====================");
+			div.setAttribute("class","myclass");
+			console.log(div["className"]);
+			div.className="yourClass";
+			console.log(div["className"]);
+			var newCls=document.createAttribute("class");
+			newCls.nodeValue="hisClass";
+			div.setAttributeNode(newCls);
+			console.log(div["className"]);
+			div["className"]="herclass";
+			console.log(div);
+			div.getAttributeNode("class").nodeValue="new";
+		</script>
+	</body>
+</html>

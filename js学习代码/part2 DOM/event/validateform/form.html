@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            text-align: center;
+            margin: 10px auto;
+        }
+        table,td{
+            border: 1px solid;
+        }
+      table{
+            
+            width: 480px;
+            border-collapse: collapse;
+        }
+        tr{
+            height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div> 
+       
+    <form action="ok.html" id="form1" style="margin: 30px auto;">
+        <table> 
+            <tr><th colspan="3">用户注册</th></tr>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" id="user" name="userName"></td>
+                <td><span id="usrhint" style="color:blueviolet">用户名长度3-20个字符</span></td>
+            </tr>
+            <tr>
+                <td>密  码:</td>
+                <td><input type="password" id="pass" name="password"></td>
+                <td><span id="pwhint" style="color:blueviolet">密码长度3-10个字符</span></td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="submit" value="提交"><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+       
+        <!-- <button>提交</button> -->
+        
+    </form>
+</div>
+    <script>
+       var input=document.getElementById("user");
+       var usrHint=document.getElementById("usrhint");
+       var pwHint=document.getElementById("pwhint");
+       var passInput=document.getElementById("pass")
+       console.log(passInput);
+       input.onfocus=function(e){
+        //   spanHint.style.color="red";
+        //   spanHint.innerHTML="用户名必须是3到12个字符";
+        //usrHint.innerHTML=" ";
+        this.value=" ";
+       }
+       input.onblur=function(e){
+           var value=input.value;
+           
+           if(value.length<3 || value.length>20)
+            {
+                usrHint.style.color="red";
+                usrHint.innerHTML="X，用户名必须是3到12个字符";
+            }
+            else{
+                usrHint.style.color="green";
+                usrHint.innerHTML="用户名格式正确√";
+            }
+       }
+      input.oninput=function(){
+                usrHint.style.color="yellow";
+                usrHint.innerHTML="正在输入...";
+      }
+       passInput.onfocus=function ()
+       {
+           //pwHint.innerHTML=" ";
+           this.value=" ";
+       }
+       passInput.oninput=function(){
+                pwHint.style.color="yellow";
+                pwHint.innerHTML="正在输入...";
+      }
+       passInput.onblur=function(e){
+           var value=this.value;
+           
+           if(value.length<3 || value.length>10)
+            {
+                pwHint.style.color="red";
+                pwHint.innerHTML="X，密码长度必须是3到10个字符";
+            }
+            else{
+                pwHint.style.color="green";
+                pwHint.innerHTML="密码格式正确√";
+            }
+       }
+    
+
+       var form=document.getElementById("form1");
+    
+       form.onsubmit=function(){
+          if(!input.value)
+          {
+              alert("please user name!!!");
+              input.focus();
+             return false;
+          }
+          else if(!passInput.value){
+            alert("please password!!!");
+              passInput.focus();
+             return false;
+          }
+       }
+
+       form.onreset=function(){
+           input.value=" ";
+           passInput.value=" ";
+           input.focus();
+
+       }
+    </script>
+</body>
+</html>

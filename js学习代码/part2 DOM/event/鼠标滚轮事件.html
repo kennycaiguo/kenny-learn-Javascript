@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滚轮事件</title>
+</head>
+<body>
+    <!--
+        鼠标滚轮事件：onmousewheel，由于滚动鼠标中键（滚轮）触发是事件,该事件存在浏览器兼容问题
+                    1.该事件中，事件对象的button属性值是0
+                    2.该事件对象有一个wheelDelta属性，叫滚动量，比较重要。向下滚为-，向上滚为+
+                    该事件的属性在不同的浏览器的值和符号不一样,该事件被ie和Chrome浏览器支持。但是ie的低版本不支持
+                    Firefox不支持该方法，Firefox使用的是DOMMouseScroll，而且需要使用element.addEventListener的方式
+                    而且是使用一个叫做detail的属性获取值，向下+，向上-；
+                -->
+    <script>
+        // document.onmousewheel=function(e){
+        //   console.log('[ e.type ]', e.type);
+        //   console.log('[ e.button ]', e.button);//0
+        //   console.log('[ e.wheelDelta ]', e.wheelDelta);
+        // }
+        // //fireFox ONLY
+        // document.addEventListener("DOMMouseScroll",(e)=>{
+        //    console.log('[ e.detail ]', e.detail);
+        // });
+        //兼容写法;
+        // function isScrollUp(e){
+        //     if(document.onmousewheel){
+        //        return  e.wheelDelta>0?true:false;
+        //     }else{
+        //        return  e.detail<0?true:false;
+        //     }
+        // }
+    </script>
+    <script>
+        //兼容写法
+        function test(){
+            if(document.addEventListener){
+                document.addEventListener("DOMMouseScroll",scroll);
+            } 
+            document.onmousewheel=scroll;
+        }
+        function scroll(e){
+          e=e||window.event;
+          if(e.wheelDelta){
+              console.log(e.wheelDelta>0? "向上滚动":"向下滚动");
+              
+          }
+          else{
+              console.log(e.detail>0? "向下滚动":"向上滚动" );
+              
+          }
+        }
+
+        test();
+    </script>
+    
+</html>

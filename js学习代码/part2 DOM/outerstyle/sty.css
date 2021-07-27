@@ -1,0 +1,12 @@
+.box {
+    width: 800px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color:antiquewhite;
+    color: deeppink;
+    border-style: solid;
+    font-family: "华文新魏";
+    font-weight: 700;
+    font-style: oblique;
+}

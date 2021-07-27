@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Object2</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        div{
+            margin: 50px auto;
+            padding-top: 0.1px;
+            border-radius: 50%;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;background-color: chartreuse;
+        }
+        #red{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+           
+        }
+        #green{
+            width: 300px;
+            height: 300px;
+            background-color: green;
+            
+        }
+        #blue{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+             
+        }
+    </style>
+</head>
+<body>
+    <!--
+        key,bubbles,eventPhase
+        key:表示被按下的按键的名称
+        bubbles:用来判断事件是否支持冒泡，对于键盘事件，他是没有对应，对于鼠标事件，支持冒泡返回true，否则返回false
+        onmuseover和onmouseout事件支持冒泡，onmouseenter和onmouseleave事件不支持冒泡
+        eventPhase：当事件流为false时，触发事件的元素（也就是被点击的元素）的值是2，冒泡触发事件的父元素的值是3
+                    当事件流为true 时，触发事件的元素（也就是被点击的元素）的值是2，捕捉事件的父元素的值为1
+    -->
+    <div id="div1"></div><br>
+    <div id="red">
+        <div id="green">
+            <div id="blue"></div>
+        </div>
+    </div>
+    <script>
+        /*
+          vscode DOM snippet:
+          gid+tab=>document.getElementById('id')
+          dqs+tab=>document.querySelector('selector')
+          dce+tab=>document.createElement('elementName')
+          dqa+tab=> document.querySelectorAll('elementId');
+          console helper:1. ctrl+l=>console.log([],)
+                       2.选中内容， ctrl+l=>console.log(‘内容’，内容)
+        */
+       //键盘事件，没有所谓的冒泡的概念
+        // document.onkeydown=function(e){
+        //     console.log(e.key);//输出按下的键名
+        //     console.log('[ e.keyCode ]', e.keyCode);
+        //     console.log('[ e.bubbles ]', e.Bubbles);
+        // }
+        // //鼠标事件
+        //  document.onclick=function(e){
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);
+        //  }
+        //  document.documentElement.onclick=function(e){
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);
+        //  }
+        //  document.body.onclick=function(e){
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);
+        //  }
+        //  const div1 = document.getElementById('div1');
+        //  div1.onclick=function(e){
+        //      console.log('[ div clicked ]');
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);
+        //  }
+        //  div1.onmouseover=function(e){
+        //      console.log('[ div mouse event ]' );
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);//true因为onmouseeover支持冒泡
+        //  }
+        //  div1.onmouseenter=function(e){
+        //      console.log('[ div mouse event ]' );
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);//false,因为onmouseenter不支持冒泡
+        //  }
+        //  div1.onmouseout=function(e){
+        //      console.log('[ div mouse event ]' );
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);//true因为onmouseoout支持冒泡
+        //  }
+        //  div1.onmouseleave=function(e){
+        //      console.log('[ div mouse event ]' );
+        //      console.log('[ e.type ]', e.type);
+        //      console.log('[ e.bubbles ]', e.bubbles);//false,因为onmouseleave不支持冒泡
+        //  }
+    </script>
+    <script>
+        const redDiv = document.getElementById('red');
+        const grDiv = document.getElementById('green');
+        const blDiv = document.getElementById('blue');
+        //也可以将lambda表达式改为function(){}
+        // redDiv.addEventListener("click",(e)=>{
+        //     console.log('[ red clicked ]');
+        //     console.log('[ e.eventPhase ]', e.eventPhase);
+        // },false);
+        // grDiv.addEventListener("click",(e)=>{
+        //     console.log('[ green clicked ]');
+        //     console.log('[ e.eventPhase ]', e.eventPhase);
+        // },false);
+        // blDiv.addEventListener("click",(e)=>{
+        //     console.log('[ blue clicked ]');
+        //     console.log('[ e.eventPhase ]', e.eventPhase);
+        // },false);
+        redDiv.addEventListener("click",(e)=>{
+            console.log('[ red clicked ]');
+            console.log('[ e.eventPhase ]', e.eventPhase);
+        },true);
+        grDiv.addEventListener("click",(e)=>{
+            console.log('[ green clicked ]');
+            console.log('[ e.eventPhase ]', e.eventPhase);
+        },true);
+        blDiv.addEventListener("click",(e)=>{
+            console.log('[ blue clicked ]');
+            console.log('[ e.eventPhase ]', e.eventPhase);
+        },true);
+    </script>
+</body>
+</html>

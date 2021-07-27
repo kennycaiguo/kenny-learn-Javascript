@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>hello</title>
+	</head>
+	<body>
+		<a href="" name="">1</a>
+		<a href="" name="">2</a>
+		<a href="" name="">3</a>
+		<form action=""></form>
+		<form action=""></form>
+		<form action=""></form>
+		<img src="" alt="">
+		<img src="" alt="">
+		<img src="" alt="">
+		<a href="" name="">4</a>
+		<a href="" >5</a>
+		<script></script>
+		<script></script>
+		<script>
+			console.log(document.documentElement);//<html>...</html>
+			console.log(document.body);//<body>...</body>
+			console.log(document.head);//<head>...</head>
+			console.log(document.head.firstElementChild);//<meta charset="utf-8">,利用head.meta获取不到
+			console.log(document.title);//title标签的内容
+			console.log(document);//#document
+			document.title="Special Nodes";
+			console.log(document.body.ownerDocument);//#document
+			console.log(document.documentURI) ;
+			console.log(document.URL);
+			console.log(document.domain);// localhost,文件的域名
+			console.log(document.lastModified);//07/13/2021 12:22:49
+			console.log(document.location);//返回一个Location对象，操作地址栏的地址
+			console.log(document.location.href);
+			//document.location.href="https://wwww.facebook.com";
+			//document.location.assign("https://www.sina.com.cn");
+			//window.location="http://www.msn.com";
+			console.log(document.readyState);//loading
+			console.log(document.anchors);//获取页面中所有具有name属性的超链接
+		    console.log(document.scripts);//获取页面中所有script标签
+			console.log(document.forms);//获取页面中所有form表单
+			console.log(document.images);//获取页面中所有img标签
+			console.log(document.links);//获取具有href属性的超链接
+			console.log(document.doctype);//<!DOCTYPE html>
+		</script>
+	</body>
+</html>

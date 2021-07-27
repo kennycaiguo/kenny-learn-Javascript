@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+        键盘事件：onkeydown，onkeypress，onkeyup可以持续触发
+        键盘事件都具有冒泡功能，onkeydown，onkeyup可以有任意键触发包括功能键，onkeypress不能有功能键触发
+        注意：div没有获得焦点，一般使用键盘事件都是document和input。其他也不会起作用
+    -->
+    <script>
+       document.onkeydown=function(e){
+           console.log(e.type)
+       }
+       document.onkeypress=function(e){
+           console.log(e.type)
+       }
+       document.onkeyup=function(e){
+           console.log(e.type)
+       }
+    </script>
+</body>
+</html>

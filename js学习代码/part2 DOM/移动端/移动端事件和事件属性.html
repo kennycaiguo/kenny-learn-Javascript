@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端事件和事件属性</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        //以下位移动端事件必须将显示模式设置为手机模式才能调试
+        touchstart事件 ：当手指触摸到屏幕或者元素时触发
+        touchmove事件 :  当手指点中元素并且移动的时候触发
+        touchend事件  ： 当手指从屏幕上移开的时候触发
+        touchcancel事件：当系统停止响应跟踪触摸事件的时候触发
+        一般是系统来电或者来信息，系统会暂停当前的操作
+        TouchEvent对象的常见属性：
+        
+        属性/方法	描述
+        altKey	返回触发触摸事件时是否按下“ALT”键
+        changedTouches	返回在上一次触摸和此触摸之间状态发生变化的所有触摸对象的列表
+        ctrlKey	返回触发事件触发时是否按下“CTRL”键
+        metaKey	返回触发事件触发时是否按下“meta”键
+        shiftKey	返回触发触摸事件时是否按下“SHIFT”键
+        targetTouches	返回与曲面接触的所有触摸对象的列表，以及与当前目标元素在同一目标元素上发生touchstart事件的位置
+        touches	返回当前与曲面接触的所有触摸对象的列表
+    -->
+    <div id="div1"></div>
+    <script>
+       var div=document.getElementById("div1");
+       div.ontouchstart=function(e){
+          //console.log(e.type);
+          
+          console.log('e: ', e);
+       }
+    //    div.ontouchmove=function(e){
+    //       console.log(e.type);
+    //    }
+    //    div.ontouchend=function(e){
+    //       console.log(e.type);
+    //    }
+    </script>
+</body>
+</html>

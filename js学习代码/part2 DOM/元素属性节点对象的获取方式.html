@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" title="mytitle"></div>
+		<script type="text/javascript">
+			//1.通过attributes来获取
+			var div=document.querySelector("#box");
+			console.log(div.attributes[0]);//id="box"
+			//2.通过元素对象.getAttributeNode(属性名称)
+			console.log(div.getAttributeNode("title"));//title="mytitle"
+			//设置属性节点，
+			//方法5.element.setAttributeNode(atr)
+			var atr=document.createAttribute("class"); //创建属性节点
+			atr.nodeValue="div1";//设置属性节点的值
+			div.setAttributeNode(atr)//给元素添加属性节点
+			console.log(div.getAttributeNode("class"));//class="div1"
+			//方法2.element.setAttribute(attrName,value)
+			div.setAttribute("width","400px");
+			console.log(div.getAttributeNode("width"));
+			 //
+			 
+		</script>
+	</body>
+</html>

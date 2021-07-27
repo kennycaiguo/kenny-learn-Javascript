@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //给文档添加右键点击事件,取消默认右键菜单
+        document.oncontextmenu=function(e){
+            e=e||window.event;
+            //取消默认右键菜单
+            e.preventDefault? e.preventDefault():(e.returnValue=false);
+        }
+    </script>
+</body>
+</html>

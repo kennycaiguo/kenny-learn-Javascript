@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Up Caption</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #box{
+            width:500px;
+            height:300px;
+            line-height:2em;
+            border:1px solid;
+            margin:100px auto;
+            padding:0 10px;
+            overflow: hidden;
+          }
+        ul{
+            list-style: none;
+        }
+        span{
+            margin-right: 10px;
+        }
+        a{
+            color: #000;
+            text-decoration: none;
+        }
+        a:hover{
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li><a href=""><span>1.</span>北京这百年 一起呼吁WHO调查美德特里克堡实验室！</a></li>
+            <li><a href=""><span>2.</span>翼龙无人机已抵达！ 这没有剧本！不是演戏！</a></li>
+            <li><a href=""><span>3.</span>关于新冠病毒溯源的重点问题 这场发布会全部正面回应</a></li>
+            <li><a href=""><span>4.</span>美参议员炒作美资助武汉病毒研究所，福奇发飙怒怼</a></li>
+            <li><a href=""><span>5.</span>美常务副国务卿访华为何安排在天津？中方：两个原因</a></li>
+            <li><a href=""><span>6.</span>神秘名单牵出最强间谍软件？马克龙等多国政要中招</a></li>
+            <li><a href=""><span>7.</span>联合国秘书长：向中国洪灾遇难者致以深切哀悼</a></li>
+            <li><a href=""><span>8.</span>美国前驻俄大使：拜登政府试图离间中俄是白费功夫</a></li>
+            <li><a href=""><span>9.</span>热身赛-武磊两失单刀 西班牙人首战告负 巴萨4-0大胜</a></li>
+            <li><a href=""><span>10.</span>再次回到内地发展的李嘉诚,如今一分也没有给河南捐款呢?</a></li>
+            <li><a href=""><span>11.</span>中国运动员在东京水上运动中心训练</a></li>
+            <li><a href=""><span>12.</span>荷兰餐厅推出世界最贵汉堡 价值3.8万</a></li>
+        </ul>
+    </div>
+    <script>
+       //获取页面节点
+       var boxDiv=document.getElementById("box");
+       var listUl=document.getElementById("list");
+       var lis=document.getElementsByTagName("li");
+      // console.log(boxDiv);
+       //将ul的内容翻倍
+       var content=listUl.innerHTML;
+       listUl.innerHTML+=content;
+       const INTERVAL=10;
+       var step=1;
+        var timeid=setInterval(moveUp, INTERVAL);
+       //实现一个将内容往上滚动的方法
+       function moveUp(){
+        //如果滚动的距离大于ul的高度一半，需要重置div的滚动距离
+        if(boxDiv.scrollTop>listUl.offsetHeight/2)
+        {
+            boxDiv.scrollTop=0;
+        }
+        else{
+            boxDiv.scrollTop+=step;
+        }
+       }
+       //给div添加鼠标进入和离开事件
+       //效果：鼠标停在上面，文本停止滚动
+       boxDiv.onmouseover=function(){
+           //方法一
+        //    clearInterval(timeid);
+        //方法二
+        step=0;
+       }
+       //鼠标移出，文本继续滚动
+       boxDiv.onmouseout=function()
+       {
+           //方法一
+        // timeid=setInterval(moveUp, INTERVAL);
+        //方法二
+          step=1;
+       }
+    </script>
+</body>
+</html>

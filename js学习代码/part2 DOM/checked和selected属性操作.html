@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox" name="hobby">做运动
+		<input type="checkbox" name="hobby">读书
+		<input type="checkbox" name="hobby">唱歌
+		<br>
+		<select name="中国菜" id="Chinese food">
+			<option value="粤菜">粤菜</option>
+			<option value="湘菜">湘菜</option>
+			<option value="川菜">川菜</option>
+			<option value="湘菜">沪菜</option>
+			<option value="京菜">京菜</option>
+		</select>
+		<script type="text/javascript">
+			var input1=document.getElementsByName("hobby")[1];
+			//input1.checked="checked";//将一个复选框设置为选上了
+			input1.checked=true;//也可以这样子写
+			console.log(input1.previousSibling);//"做运动"
+			console.log(input1.previousSibling.previousSibling);//<input type="checkbox" name="hobby">
+			console.log(input1.previousSibling.previousSibling.checked);//flase
+			var opt1=document.getElementById("Chinese food").options[1];
+			opt1.selected=true; //将一个option设置为选中状态
+		</script>
+	</body>
+</html>

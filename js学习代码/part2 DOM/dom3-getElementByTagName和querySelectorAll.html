@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>我是第一个</div>
+		<div>我是第二个</div>
+		<div>我是第三个</div>
+		<script type="text/javascript">
+			/*
+			document.getElementsByTagName返回一个HTMLCollection，这是一个动态集合，会自动更新
+			var divs2=document.querySelectorAll返回一个NodeList这是这个静态集合，不会自动更新
+			
+			*/
+			var divs1=document.getElementsByTagName("div");
+			console.log(divs1);
+			var divs2=document.querySelectorAll("div");
+			console.log(divs2);
+			var newDiv=document.createElement("div");
+			newDiv.innerHTML="我是js代码创建的div";
+			document.body.append(newDiv);
+			console.log(divs1);
+			console.log(divs2);
+		</script>
+	</body>
+</html>

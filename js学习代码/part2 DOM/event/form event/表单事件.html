@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单事件</title>
+</head>
+<body>
+    <!--
+        表单事件：focus，blur，input，change，submit，reset
+        focus:元素获得输入焦点时触发
+        blur：元素失去输入焦点是触发
+        input：元素接收输入时触发
+        change：当元素失去焦点时，如果元素的内容改变了就会触发，如果元素的内容没有改变就不触发
+        一般是先触发change，再触发blur
+        注意：onsubmit事件是给form元素添加的,可以在，这个函数里面阻止表单的提交只需要return false就可以阻止提交
+             onreset事件元素给form元素添加的。
+    -->
+    <form action="ok.html" id="form1">
+        <input type="text" id="text" name="userName">&nbsp;<span id="hint" style="color:blueviolet">用户名长度3-20个字符</span><br><br>
+        <input type="submit" value="提交">
+        <!-- <button>提交</button> -->
+        <input type="reset" value="重置">
+    </form>
+    <script>
+       var input=document.getElementById("text");
+       var spanHint=document.getElementById("hint");
+       //console.log(input);
+       input.onfocus=function(e){
+        //   spanHint.style.color="red";
+        //   spanHint.innerHTML="用户名必须是3到12个字符";
+        spanHint.innerHTML=" ";
+        this.value=" ";
+       }
+       input.onblur=function(e){
+           var value=input.value;
+           
+           if(value.length<6 || value.length>20)
+            {
+                spanHint.style.color="red";
+                spanHint.innerHTML="X，用户名必须是3到12个字符";
+            }
+            else{
+                spanHint.style.color="green";
+                spanHint.innerHTML="√";
+            }
+       }
+    //    input.onchange=function(e){
+    //     console.log(e.type);
+    //    }
+       input.oninput=function(e){
+        spanHint.innerHTML=" ";
+       }
+       var form=document.getElementById("form1");
+    
+       form.onsubmit=function(){
+          if(!input.value)
+          {
+              alert("please enter data!!!");
+              input.focus();
+             return false;
+          }
+       }
+
+       form.onreset=function(){
+           input.value=" ";
+           input.focus();
+       }
+    </script>
+</body>
+</html>

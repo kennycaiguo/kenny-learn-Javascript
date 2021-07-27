@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">div1</div>
+		<div id="box">div2</div>
+		<p>3</p>
+		<p>4</p>
+		
+		<input type="checkbox" name="hobby">看书
+		<input type="checkbox" name="hobby">吃饭
+		<input type="checkbox" name="hobby">做运动
+		<ul>
+			<li>我是第1个</li>
+			<li>我是第2个</li>
+			<li class="style">我是第3个</li>
+			<li>我是第4个</li>
+			<li  class="style">我是第5个</li>
+		</ul>
+		<span>我是span1</span>
+		<span>我是span2</span>
+		<span>我是span3</span>
+		<div id="box3">
+			<span>span3 inside div</span>
+			<span>span4 inside div</span>
+		</div>
+		<script type="text/javascript">
+			//节点的获取方法1 document.getElementById(id名称)，只能获取第一个，id是大小写敏感
+		  var divEl=document.getElementById("box");
+		 console.log(divEl);//<div id="box">div1</div>
+		 //节点的获取方法2,document.getElementsByTagName("p"),返回一个类数组对象，是一个集合，大小写不敏感
+		 var ps=document.getElementsByTagName("p")
+		 
+		  console.log(ps);//HTMLCollection(2) [p, p],
+		  //3.document.getElementsByName(属性名)，根据标签的属性名获取元素，返回的是一个节点列表
+		  var chks=document.getElementsByName("hobby");
+		  console.log(chks);
+		  chks[1].checked="checked";//将第二个复选框选中
+		  //4.document.getElementsByClassName("style");返回一个类数组集合，该方法有兼容性问题，有些浏览器不支持
+		  var lis=document.getElementsByClassName("style");
+		  console.log(lis);
+		  lis[0].style="width:200px;height:40px;color:lime;border:solid;";
+		   lis[1].style="width:200px;height:40px;color:deeppink;border:solid;background-color:purple;";
+		   //5.document.querySelector(css选择器);只返回一个结果,如果有多个标签符号条件只能返回第一个
+		   var div=document.querySelector("#box3");
+		   console.log(div);
+		   var span=document.querySelector("span");
+		   console.log(span);
+		   var li=document.querySelector(".style");
+		   console.log(li);
+		   //6.document.querySelectorAll(css选择器);返回符号条件的所有元素，是一个节点列表
+		   var spans=document.querySelectorAll("span");
+		   console.log(spans);
+		   var divSpans=document.querySelectorAll("#box3 span");
+		   console.log(divSpans);
+		</script>
+	</body>
+</html>

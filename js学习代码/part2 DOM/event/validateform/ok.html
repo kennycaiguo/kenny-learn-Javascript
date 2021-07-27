@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        在html页面中利用js获取表单提交过来的值，表单需要使用get提交方式，即method=“get”
+        获取方法window.location.search，然后利用字符串截取
+    -->
+    <h3><span id="user"></span>欢迎来到首页</h3>
+    <script>
+        console.log(window.location.search);
+        var span=document.getElementById("user");
+       // span.innerHTML=window.location.search.split("=")[1]+",";
+    </script>
+</body>
+</html>

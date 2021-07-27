@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>random names</title>
+</head>
+<body>
+    <input type="button" value="开始" id="start">
+    <input type="button" value="停止" id="stop"><span id="name">Tom</span>
+    <script>
+      //  
+        var timeId=0;
+        var ranVal=0;
+        var start=document.getElementById("start");
+        var stop=document.getElementById("stop");
+        var span=document.getElementById("name");
+        //console.log(name);
+        start.onclick=function ()
+        {
+            //如果定时器已经启动了，就不要让它再启动
+           if(timeId) return;
+           timeId=setInterval(setName,300);
+        }
+
+        var suffix=["lovely","pretty","friendly","kind","amiable","smart","helpful"];
+        var names=["andy","Brandy","Cindy","Danny","Emily","Fred","Fanny","George","Manny","Nancy","Linda","Lucy"];
+        function setName()
+        {
+             span.innerHTML=suffix[random(0,suffix.length)] +" "+names[random(0,names.length)];
+        }
+
+        function random(min,max){
+            return ~~(Math.random()*(max-min)+min);
+        }
+       stop.onclick= function ()
+        {
+            //如果定时器已经停止了就不要再执行终止定时器的操作
+            if(timeId){
+                 clearInterval(timeId);
+                 timeId=0;
+            }
+           
+        }
+ </script>
+</body>
+</html>
