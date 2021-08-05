@@ -10,7 +10,7 @@
 # <a href="https://juejin.cn/post/6844903636154187790">JavaScript中的函数重载（Function overloading）</a>
 # <a href="https://blog.csdn.net/guoxiaozhuang4/article/details/80253772">JS重写Object的toString()方法</a>
 # <a href="https://www.jianshu.com/p/45cd21aae931">优化Visual Studio Code的自动补全</a>
-
+# 解决用vscode编写html页面运行时无法实现页面跳转的方法：为vscode 安装live server 插件
 # js中有趣的Infinity
 <!DOCTYPE html>
 <html>
