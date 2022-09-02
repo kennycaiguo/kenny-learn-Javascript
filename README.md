@@ -49,3 +49,4 @@
 		</script>
 	</body>
 </html>
+<a href="https://github.com/AlloyTeam/AlloyStick">AlloyStick——专为 HTML5 开发的开源骨骼动画引擎</a>
