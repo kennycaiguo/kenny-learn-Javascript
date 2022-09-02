@@ -12,6 +12,7 @@
 # <a href="https://www.jianshu.com/p/45cd21aae931">优化Visual Studio Code的自动补全</a>
 # <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment">DocumentFragment</a>
 # <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createDocumentFragment">Document.createDocumentFragment()</a>
+# <a href="https://github.com/AlloyTeam/AlloyStick">AlloyStick——专为 HTML5 开发的开源骨骼动画引擎</a>
 # 解决用vscode编写html页面运行时无法实现页面跳转的方法：为vscode 安装live server 插件
 # js中有趣的Infinity
 <!DOCTYPE html>
@@ -49,4 +50,4 @@
 		</script>
 	</body>
 </html>
-# <a href="https://github.com/AlloyTeam/AlloyStick">AlloyStick——专为 HTML5 开发的开源骨骼动画引擎</a>
+
